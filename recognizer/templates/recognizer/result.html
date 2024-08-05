@@ -1,0 +1,37 @@
+{% extends "recognizer/base.html" %}
+{% load static %}
+
+{% block title %}
+Recognize - Result
+{% endblock title %}
+
+{% block content %}
+
+<div class="work"style="margin-top: 10.5%;">
+    <div class="work__center center">
+        <div class="work__head">
+            <div class="work__stage stage">Okayy, let's see 🤔</div>
+            <h2 class="work__title title"><span class="title__color">Your emotion is</span> {{ request.session.prediction }}</h2>
+        </div>
+        <div class="work__details aos-init aos-animate" data-aos="animation-translate-y" data-aos-duration="800">
+            <a style="font-size:50px" onclick="history.back()" class="work__link" href="#">Go back</a>
+        </div>
+    </div>
+    <div class="work__wave"><img class="work__pic" src="img/wave.svg" alt=""></div>
+    <div class="work__preview aos-init aos-animate" data-aos="" data-aos-duration="600"><img class="work__pic"
+            src="{% static 'images/recognize/emotion.png' %}"></div>
+    <div class="work__circles">
+        <div class="work__circle js-rellax" data-rellax-speed="1" style="transform: translate3d(0px, -85px, 0px);">
+        </div>
+        <div class="work__circle"></div>
+        <div class="work__circle js-rellax" data-rellax-speed="-1" style="transform: translate3d(0px, 25px, 0px);">
+        </div>
+        <div class="work__circle"></div>
+        <div class="work__circle"></div>
+    </div>
+    <div class="work__cursor aos-init aos-animate" data-aos=""><img class="work__pic" src="{% static 'images/recognize/cursor.png' %}" alt=""></div>
+</div>
+
+<script src="{% static 'js/recorder.js' %}"></script>
+<script src="{% static 'js/utils.js' %}"></script>
+{% endblock content %}
